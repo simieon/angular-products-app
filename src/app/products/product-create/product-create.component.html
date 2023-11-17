@@ -1,0 +1,119 @@
+
+<mat-card>
+  <form (submit)="onAddProduct(productForm)" #productForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="typeProduct"
+        ngModel
+        required
+        placeholder="Type Product"
+        #typeProduct="ngModel"
+      >
+      <mat-error *ngIf="typeProduct.invalid">
+        Please enter a Type Product
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="vendor"
+        ngModel
+        required
+        placeholder="Vendor"
+        #vendor="ngModel"
+      >
+      <mat-error *ngIf="vendor.invalid">
+        Please enter a Vendor
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="model"
+        ngModel
+        placeholder="Model"
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        name="model"
+        ngModel
+        required
+        placeholder="Price"
+        min="1"
+        #price="ngModel"
+      >
+      <mat-error *ngIf="price.invalid">
+        Please enter a Price
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="umgUrl"
+        ngModel
+        placeholder="Img URI"
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        name="count"
+        ngModel
+        required
+        placeholder="Count"
+        min="1"
+        #count="ngModel"
+      >
+      <mat-error *ngIf="count.invalid">
+        Please enter a Count
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="email"
+        name="vendorEmail"
+        ngModel
+        required
+        placeholder="Vendor Email"
+        #vendorEmail="ngModel"
+      >
+      <mat-error *ngIf="vendorEmail.invalid">
+        Please enter a Vendor Email
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="6"
+        name="description"
+        ngModel
+        placeholder="Description"
+      ></textarea>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      type="submit"
+      color="accent"
+    >
+      Save Product
+    </button>
+  </form>
+</mat-card>
