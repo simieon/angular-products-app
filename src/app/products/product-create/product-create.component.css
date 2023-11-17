@@ -2,7 +2,14 @@ mat-form-field,
 textarea{
   width: 100%;
 }
-button{
+.save-button{
   margin-bottom: 1rem;
   margin-left: 1rem;
+}
+
+.show-form-button{
+  width: 100%;
+  font-size: 8pt;
+  height: auto;
+  margin-bottom: 1rem;
 }

@@ -9,6 +9,7 @@ import {Product} from "../product.model";
   styleUrl: './product-create.component.css'
 })
 export class ProductCreateComponent {
+  showForm = false
   constructor(public productService: ProductsService) {
   }
 
@@ -18,6 +19,7 @@ export class ProductCreateComponent {
     }
 
     const product: Product = {
+      id: Math.floor(Math.random() * 10000),
       typeProduct: form.value.typeProduct,
       vendor: form.value.vendor,
       model: form.value.model,
@@ -30,5 +32,9 @@ export class ProductCreateComponent {
 
     this.productService.addProduct(product)
     form.resetForm()
+  }
+
+  toggleForm(){
+    this.showForm = !this.showForm
   }
 }

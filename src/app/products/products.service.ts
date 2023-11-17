@@ -19,4 +19,12 @@ export class ProductsService{
     this.products.push(product)
     this.productUpdated.next([...this.products])
   }
+
+  deleteProduct(product: Product){
+    const index = this.products.indexOf(product)
+    if (index !== -1) {
+      this.products.splice(index, 1)
+      this.productUpdated.next([...this.products])
+    }
+  }
 }
