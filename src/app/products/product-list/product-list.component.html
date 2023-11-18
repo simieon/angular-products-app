@@ -4,16 +4,60 @@
       {{product.typeProduct}}
     </mat-expansion-panel-header>
     <img src="{{product.imgUrl}}" alt="{{product.imgUrl}}">
-    <p><strong>Vendor:</strong> {{product.vendor}}</p>
-    <p><strong>Vendor Email:</strong> {{product.vendorEmail}}</p>
-    <p *ngIf="product.model"><strong>Model:</strong> {{product.model}}</p>
-    <p><strong>Price:</strong> {{product.price}} EUR</p>
-    <p><strong>Count:</strong> {{product.count}}</p>
-    <p *ngIf="product.description"><strong>Description:</strong> {{product.description}}</p>
-    <mat-action-row>
-      <button mat-button color="primary">EDIT</button>
-      <button mat-button color="warn" (click)="onDeleteClick(product)">DELETE</button>
-    </mat-action-row>
+    <div *ngIf="!product.editMode">
+      <p><strong>Vendor:</strong> {{product.vendor}}</p>
+      <p><strong>Vendor Email:</strong> {{product.vendorEmail}}</p>
+      <p *ngIf="product.model"><strong>Model:</strong> {{product.model}}</p>
+      <p><strong>Price:</strong> {{product.price}} EUR</p>
+      <p><strong>Count:</strong> {{product.count}}</p>
+      <p *ngIf="product.description"><strong>Description:</strong> {{product.description}}</p>
+    </div>
+    <div *ngIf="product.editMode">
+      <div class="form-group">
+        <label for="vendor">Vendor:</label>
+        <input id="vendor" [(ngModel)]="product.vendor" />
+      </div>
+      <br>
+
+      <div class="form-group">
+        <label for="vendorEmail">Vendor Email:</label>
+        <input id="vendorEmail" [(ngModel)]="product.vendorEmail" />
+      </div>
+      <br>
+
+      <div class="form-group" *ngIf="product.model">
+        <label for="model">Model:</label>
+        <input id="model" [(ngModel)]="product.model" />
+      </div>
+      <br>
+
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input id="price" type="number" [(ngModel)]="product.price" />
+      </div>
+      <br>
+
+      <div class="form-group">
+        <label for="count">Count:</label>
+        <input id="count" type="number" [(ngModel)]="product.count" />
+      </div>
+      <br>
+
+      <div class="form-group" *ngIf="product.description">
+        <label for="description">Description:</label>
+        <textarea id="description" [(ngModel)]="product.description"></textarea>
+      </div>
+      <br>
+
+      <button mat-button color="primary" (click)="onSaveClick(product)">SAVE</button>
+      <button mat-button color="warn" (click)="onCancelClick(product)">CANCEL</button>
+    </div>
+    <div *ngIf="!product.editMode">
+      <mat-action-row>
+        <button mat-button color="primary" (click)="onEditClick(product)">EDIT</button>
+        <button mat-button color="warn" (click)="onDeleteClick(product)">DELETE</button>
+      </mat-action-row>
+    </div>
   </mat-expansion-panel>
 </mat-accordion>
 <p *ngIf="products.length<=0" class="mat-body-1 info-text">No Products here yet...</p>

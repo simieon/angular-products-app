@@ -8,4 +8,5 @@ export interface Product{
   count: number
   vendorEmail: string
   description?: string
+  editMode?: boolean
 }

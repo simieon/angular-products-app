@@ -25,6 +25,19 @@ export class ProductListComponent implements OnInit, OnDestroy{
     this.productSub.unsubscribe()
   }
 
+  onEditClick(product: Product){
+    product.editMode = true
+  }
+
+  onSaveClick(product: Product){
+    product.editMode = false
+    this.productsService.saveProductChanges(product)
+  }
+
+  onCancelClick(product: Product){
+    product.editMode = false
+  }
+
   onDeleteClick(product: Product): void {
     this.productsService.deleteProduct(product)
   }

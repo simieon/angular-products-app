@@ -9,9 +9,30 @@
 
 img{
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 1rem;
 }
 
 p{
   margin-bottom: 1rem;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: max-content 1fr; /* Adjust the column width as needed */
+  grid-column-gap: 10px;
+  align-items: center;
+}
+
+.form-group input {
+  display: block;
+  width: 100%;
+  padding: 0.1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+
+.form-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem; /* Adjust the margin as needed */
 }

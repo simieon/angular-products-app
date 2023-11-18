@@ -19,7 +19,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
   ],
 })
 export class ProductCreateComponent {
-  showForm = false
+  showForm: boolean = false
   constructor(public productService: ProductsService) {
   }
 
@@ -30,14 +30,7 @@ export class ProductCreateComponent {
 
     const product: Product = {
       id: Math.floor(Math.random() * 10000),
-      typeProduct: form.value.typeProduct,
-      vendor: form.value.vendor,
-      model: form.value.model,
-      price: form.value.price,
-      imgUrl: form.value.imgUrl,
-      count: form.value.count,
-      vendorEmail: form.value.vendorEmail,
-      description: form.value.description
+      ...form.value
     }
 
     this.productService.addProduct(product)
