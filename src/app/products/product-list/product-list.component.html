@@ -3,7 +3,13 @@
     <mat-expansion-panel-header>
       {{product.typeProduct}}
     </mat-expansion-panel-header>
-    <p>{{product.description}}</p>
+    <img src="{{product.imgUrl}}" alt="{{product.imgUrl}}">
+    <p><strong>Vendor:</strong> {{product.vendor}}</p>
+    <p><strong>Vendor Email:</strong> {{product.vendorEmail}}</p>
+    <p *ngIf="product.model"><strong>Model:</strong> {{product.model}}</p>
+    <p><strong>Price:</strong> {{product.price}} EUR</p>
+    <p><strong>Count:</strong> {{product.count}}</p>
+    <p *ngIf="product.description"><strong>Description:</strong> {{product.description}}</p>
     <mat-action-row>
       <button mat-button color="primary">EDIT</button>
       <button mat-button color="warn" (click)="onDeleteClick(product)">DELETE</button>

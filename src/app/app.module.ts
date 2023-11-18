@@ -13,6 +13,7 @@ import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     MatCardModule,
     FormsModule,
     MatInputModule,
-    MatToolbarModule
+    MatToolbarModule,
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent]

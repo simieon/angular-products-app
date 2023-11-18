@@ -2,11 +2,21 @@ import { Component } from '@angular/core';
 import {ProductsService} from "../products.service";
 import {NgForm} from "@angular/forms";
 import {Product} from "../product.model";
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-product-create',
   templateUrl: './product-create.component.html',
-  styleUrl: './product-create.component.css'
+  styleUrl: './product-create.component.css',
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0,
+        transform: 'translateY(-20px)'
+      })),
+      transition('void <=> *', animate(300)),
+    ]),
+  ],
 })
 export class ProductCreateComponent {
   showForm = false

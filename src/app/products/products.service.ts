@@ -16,7 +16,7 @@ export class ProductsService{
   }
 
   addProduct(product: Product){
-    this.products.push(product)
+    this.products.unshift(product)
     this.productUpdated.next([...this.products])
   }
 
